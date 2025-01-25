@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATH</title>
+    <link rel="stylesheet" href="style.css">
+    <!--icon  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css    ">
+
+</head>
+<body>    
+    <nav>
+        <div class="logo">Shop Recommendation</div>
+        <div class="navbar-nav">
+            <ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home <i class="fa-solid fa-house"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Shop <i class="fa-brands fa-shopify"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="search.html">Search <i class="fa-solid fa-magnifying-glass"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="store.html">Store <i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+     
+    <!-- ============================ -->
+    <!-- Search Bar with Autocomplete -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Type to search...">
+        <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+        <button id="search-button">Search</button>
+    </div>
+    <!-- ---------------------search end------------------------- -->
+     <!-- ///1/// -->
+    <section class="top-search">
+        <h2>Top Search for Today</h2>
+        <div class="search-list">
+            <div class="row-2">
+                <div class="search-item">
+                    <img src="image/Photo for PP/2. Clothes/10.jpg" alt="">
+                    <p class="p-2">Nike Air Force</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/3. Stationary/12.jpg" alt="">
+                    <p class="p-2">White Sweater</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/accessaries/5.jpg" alt="">
+                    <p class="p-2">Android Smartwatch</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/5. DIY/15.jpg" alt="">
+                    <p class="p-2">Apple Airpods</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/Big So/11.jpg" alt="">
+                    <p class="p-2">Female White T-Shirt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //////////2/// -->
+    <section class="top-search">
+        <!-- <h2>Top Search for Today</h2> -->
+        <div class="search-list">
+            <div class="row-2">
+                <div class="search-item">
+                    <img src="image/Photo for PP/2. Clothes/10.jpg" alt="">
+                    <p class="p-2">Nike Air Force</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/3. Stationary/12.jpg" alt="">
+                    <p class="p-2">White Sweater</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/accessaries/5.jpg" alt="">
+                    <p class="p-2">Android Smartwatch</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/5. DIY/15.jpg" alt="">
+                    <p class="p-2">Apple Airpods</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/Big So/11.jpg" alt="">
+                    <p class="p-2">Female White T-Shirt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ///3/ -->
+    <section class="top-search">
+        <!-- <h2>Top Search for Today</h2> -->
+        <div class="search-list">
+            <div class="row-2">
+                <div class="search-item">
+                    <img src="image/Photo for PP/2. Clothes/10.jpg" alt="">
+                    <p class="p-2">Nike Air Force</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/3. Stationary/12.jpg" alt="">
+                    <p class="p-2">White Sweater</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/accessaries/5.jpg" alt="">
+                    <p class="p-2">Android Smartwatch</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/5. DIY/15.jpg" alt="">
+                    <p class="p-2">Apple Airpods</p>
+                </div>
+                <div class="search-item">
+                    <img src="image/Photo for PP/Big So/11.jpg" alt="">
+                    <p class="p-2">Female White T-Shirt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer> Best for Search <br> Thank You </footer>
+    <!-- ============================================== -->
+    <script>
+          // List of items for autocomplete with their associated pages
+            const items = [
+                { name: "clothes", url: "clothes1.html" },
+                { name: "accessories", url: "accessarie.html" },
+                { name: "stationary", url: "stationary2.html" },
+                { name: "Furniture", url: "furniture.html" },
+                { name: "Bags", url: "bags.html" },
+                { name: "Watches", url: "watches.html" },
+                { name: "Books", url: "books.html" },
+                { name: "Toys", url: "toys.html" }
+            ];
+
+            const searchInput = document.getElementById('search-input');
+            const autocompleteList = document.getElementById('autocomplete-list');
+            const searchButton = document.getElementById('search-button');
+
+            // Function to update autocomplete suggestions
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                autocompleteList.innerHTML = ""; // Clear previous suggestions
+
+                if (query) {
+                    const suggestions = items.filter(item => item.name.toLowerCase().includes(query));
+                    suggestions.forEach(suggestion => {
+                        const div = document.createElement('div');
+                        div.className = 'autocomplete-suggestion';
+                        div.textContent = suggestion.name;
+
+                        // When a suggestion is clicked, populate the input
+                        div.addEventListener('click', () => {
+                            searchInput.value = suggestion.name;
+                            autocompleteList.innerHTML = ""; // Clear suggestions
+                        });
+
+                        autocompleteList.appendChild(div);
+                    });
+                }
+            });
+
+            // Search functionality
+            searchButton.addEventListener('click', () => {
+                const query = searchInput.value.toLowerCase();
+                const result = items.find(item => item.name.toLowerCase() === query);
+
+                if (result) {
+                    window.location.href = result.url; // Redirect to the corresponding page
+                } else if (query) {
+                    alert("No matching page found.");
+                } else {
+                    alert("Please enter a search term.");
+                }
+            });
+
+            // Hide autocomplete suggestions when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!autocompleteList.contains(e.target) && e.target !== searchInput) {
+                    autocompleteList.innerHTML = ""; // Clear suggestions
+                }
+            });
+        </script>
+    </body>
+    </html>
